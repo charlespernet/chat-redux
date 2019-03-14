@@ -17,7 +17,7 @@ const initialState = {
   messages: [], // Store a list of messages
   channels: [], // Store a list of channels
   selectedChannel: null, // Store the selected channel
-  currentUser: prompt("What's your username ?") // Store the current username
+  // currentUser: prompt("What's your username ?") // Store the current username
 };
 
 // State and reducers

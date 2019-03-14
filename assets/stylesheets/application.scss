@@ -1,7 +1,30 @@
 body {
   font-family: Helvetica;
 }
+
 .app {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  display: flex;
+  height: 100vh;
+}
+
+.channel-list {
+  flex: 3;
+  background: lightgray;
+}
+
+.message-list {
+  flex: 4;
+}
+
+.message-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  h5 {
+    color: red;
+  }
+}
+
+.message {
+  padding: 30px;
 }
