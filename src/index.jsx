@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { applyMiddleware, createStore, combineReducers } from 'redux';
 import logger from 'redux-logger';
+import reduxPromise from 'redux-promise';
 
 // internal modules
 import App from './components/app';
@@ -22,7 +23,7 @@ const reducers = combineReducers({
 
 // render an instance of the component in the DOM
 ReactDOM.render(
-  <Provider store={createStore(reducers, applyMiddleware(logger))}>
+  <Provider store={createStore(reducers, {}, applyMiddleware(reduxPromise, logger))}>
     <App />
   </Provider>,
   document.getElementById('root')
