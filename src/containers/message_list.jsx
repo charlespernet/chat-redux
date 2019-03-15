@@ -13,7 +13,7 @@ class MessageList extends Component {
 
   componentDidMount() {
     // window.setInterval(console.log('bob'), 3000);
-    this.intervalFetchMessages = setInterval(() => this.props.fetchMessages(this.props.activeChannel), 3000)
+    // this.intervalFetchMessages = setInterval(() => this.props.fetchMessages(this.props.activeChannel), 3000)
   }
 
   componentWillUnmount() {
