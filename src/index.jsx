@@ -14,13 +14,15 @@ import messagesReducer from './reducers/messages_reducer';
 import channelsReducer from './reducers/channels_reducer';
 import activeChannelReducer from './reducers/active_channel_reducer';
 import messageReducer from './reducers/message_reducer';
+import currentUserReducer from './reducers/current_user_reducer';
 
 // State and reducers
 const reducers = combineReducers({
   messages: messagesReducer,
   channels: channelsReducer,
   activeChannel: activeChannelReducer,
-  message: messageReducer
+  message: messageReducer,
+  currentUser: currentUserReducer
 });
 
 // render an instance of the component in the DOM

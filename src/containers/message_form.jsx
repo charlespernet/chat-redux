@@ -12,8 +12,10 @@ class MessageForm extends Component {
   }
 
   handleSubmit = () => {
-    this.props.createMessage({ channel: this.props.activeChannel, author: 'Bob', content: this.props.message })
-    this.props.setMessage("")
+    if (this.props.message !== "") {
+      this.props.createMessage({ channel: this.props.activeChannel, author: this.props.currentUser, content: this.props.message })
+      this.props.setMessage("")
+    }
   }
 
   render() {
@@ -31,7 +33,8 @@ class MessageForm extends Component {
 function mapStateToProps(state) {
   return {
     message: state.message,
-    activeChannel: state.activeChannel
+    activeChannel: state.activeChannel,
+    currentUser: state.currentUser
   };
 }
 

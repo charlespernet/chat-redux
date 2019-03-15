@@ -5,14 +5,19 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { fetchMessages } from '../actions';
+import { setUser } from '../actions';
 
 class MessageList extends Component {
   componentWillMount() {
+    // Should be in app but this is the first container
+    if (this.props.currentUser == 'guest user') {
+      this.props.setUser()
+    }
     this.props.fetchMessages(this.props.activeChannel)
   }
 
   componentDidMount() {
-    // this.intervalFetchMessages = setInterval(() => this.props.fetchMessages(this.props.activeChannel), 3000)
+    this.intervalFetchMessages = setInterval(() => this.props.fetchMessages(this.props.activeChannel), 3000)
   }
 
   componentWillUnmount() {
@@ -39,12 +44,13 @@ class MessageList extends Component {
 function mapStateToProps(state) {
   return {
     messages: state.messages,
-    activeChannel: state.activeChannel
+    activeChannel: state.activeChannel,
+    currentUser: state.currentUser
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchMessages: fetchMessages }, dispatch);
+  return bindActionCreators({ fetchMessages, setUser }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MessageList);
