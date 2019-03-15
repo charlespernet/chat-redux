@@ -11,6 +11,7 @@ class Message extends Component {
       <div className="message">
         <div className="message-header">
           <h5>{this.props.author}</h5>
+          <span>-</span>
           <p>{this.props.created_at}</p>
         </div>
         <div className="message-body">

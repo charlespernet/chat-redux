@@ -56,8 +56,16 @@ body {
 .message-header {
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
+  p {
+    font-style: italic;
+    font-size: 12px;
+    color: #7d7c7c;
+  }
+  span {
+    margin: 0 10px;
+  }
   h5 {
+    font-weight: bold;
     color: red;
   }
 }
