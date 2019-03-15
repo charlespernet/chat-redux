@@ -4,7 +4,7 @@ export const CREATE_MESSAGE = 'CREATE_MESSAGE';
 export const SELECT_CHANNEL = 'SELECT_CHANNEL';
 
 export function fetchMessages(channel) {
-  const promise = fetch('https://wagon-chat.herokuapp.com/general/messages')
+  const promise = fetch(`https://wagon-chat.herokuapp.com/${channel}/messages`)
     .then(response => response.json());
 
   return {

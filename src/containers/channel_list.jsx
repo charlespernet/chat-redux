@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import { selectChannel } from '../actions'
+import { fetchMessages } from '../actions'
 
 class ChannelList extends Component {
   static defaultProps = {
@@ -12,13 +13,12 @@ class ChannelList extends Component {
 
   selectChannel = (event) => {
     this.props.selectChannel(event.target.id)
+    this.props.fetchMessages(event.target.id)
   }
 
   buildChannels() {
-    console.log(this.props.channels)
     return this.props.channels.map(channel => {
       const classNames = this.props.activeChannel == channel.slug ? 'selected' : '';
-      console.log(classNames);
       return <p id={channel.slug}
                  key={channel.slug}
                  onClick={this.selectChannel}
@@ -48,7 +48,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({selectChannel}, dispatch);
+  return bindActionCreators({selectChannel, fetchMessages}, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChannelList);
