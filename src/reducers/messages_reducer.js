@@ -1,10 +1,15 @@
 import { FETCH_MESSAGES } from '../actions';
+import { CREATE_MESSAGE } from '../actions';
 
-export default function(state = null, action) {
+export default function(state = [], action) {
   switch (action.type) {
     case FETCH_MESSAGES:
-      return action.payload;
+      return action.payload.messages;
+    case CREATE_MESSAGE:
+      let newState = state.slice(0)
+      newState.push(action.payload)
+      return newState;
     default:
-      return {messages: []};
+      return state;
   }
 }

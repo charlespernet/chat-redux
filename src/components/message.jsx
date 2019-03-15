@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 
 class Message extends Component {
-  static defaultProps = {
-    author: "anonymous77",
-    content: "My name is anonymous77",
-    created_at: "2017-09-26T23:03:21.194Z"
+  componentDidMount() {
+    // Can be refacto using Ref
+    document.querySelector('.message-list-body').lastChild.scrollIntoView();
   }
 
   render() {

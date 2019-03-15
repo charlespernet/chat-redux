@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Message from '../components/message'
+import MessageForm from './message_form';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -7,13 +8,21 @@ import { fetchMessages } from '../actions';
 
 class MessageList extends Component {
   componentWillMount() {
-    this.props.fetchMessages()
+    this.props.fetchMessages(this.props.activeChannel)
   }
 
   render() {
     return(
       <div className="message-list">
-        {this.props.messages.messages.map(message => <Message key={message.author} />)}
+        <div className="message-list-header">
+          <h3>Channel #{this.props.activeChannel}</h3>
+        </div>
+        <div className="message-list-body">
+          {this.props.messages.map(message => <Message key={message.author} {...message} />)}
+        </div>
+        <div className="message-list-form">
+          <MessageForm />
+        </div>
       </div>
     );
   }
@@ -21,7 +30,8 @@ class MessageList extends Component {
 
 function mapStateToProps(state) {
   return {
-    messages: state.messages
+    messages: state.messages,
+    activeChannel: state.activeChannel
   };
 }
 

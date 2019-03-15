@@ -8,12 +8,20 @@ body {
 }
 
 .channel-list {
-  flex: 3;
+  flex: 2;
   background: lightgray;
 }
 
 .message-list {
-  flex: 4;
+  flex: 7;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  &-body {
+    overflow: scroll;
+    flex: 0 1 100%;
+  }
 }
 
 .message-header {
@@ -27,4 +35,19 @@ body {
 
 .message {
   padding: 30px;
+}
+
+.message-input {
+  display: flex;
+
+  input {
+    display: block;
+    padding: 10px;
+    width: 100%;
+    font-size: 24px;
+  }
+
+  button {
+    padding: 10px 50px;
+  }
 }
