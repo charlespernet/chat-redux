@@ -18,10 +18,12 @@ class MessageForm extends Component {
 
   render() {
     return(
-      <div className="message-input">
-        <input type="text" value={this.props.message} onChange={this.handleChange} />
-        <button onClick={this.handleSubmit}>SEND</button>
-      </div>
+      <form action="#" onSubmit={this.handleSubmit}>
+        <div className="message-input">
+            <input type="text" value={this.props.message} onChange={this.handleChange} />
+            <button type='submit'>SEND</button>
+        </div>
+      </form>
     );
   }
 }
