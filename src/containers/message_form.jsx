@@ -12,7 +12,7 @@ class MessageForm extends Component {
   }
 
   handleSubmit = () => {
-    this.props.createMessage({channel: this.props.activeChannel, author: 'Bob', content: this.props.message, created_at: '24.04.2019'})
+    this.props.createMessage({ channel: this.props.activeChannel, author: 'Bob', content: this.props.message })
     this.props.setMessage("")
   }
 

@@ -11,6 +11,15 @@ class MessageList extends Component {
     this.props.fetchMessages(this.props.activeChannel)
   }
 
+  componentDidMount() {
+    // window.setInterval(console.log('bob'), 3000);
+    this.intervalFetchMessages = setInterval(() => this.props.fetchMessages(this.props.activeChannel), 3000)
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalFetchMessages);
+  }
+
   render() {
     return(
       <div className="message-list">
@@ -18,7 +27,7 @@ class MessageList extends Component {
           <h3>Channel #{this.props.activeChannel}</h3>
         </div>
         <div className="message-list-body">
-          {this.props.messages.map(message => <Message key={message.author} {...message} />)}
+          {this.props.messages.map(message => <Message key={message.id} {...message} />)}
         </div>
         <div className="message-list-form">
           <MessageForm />
