@@ -8,8 +8,26 @@ body {
 }
 
 .channel-list {
-  flex: 2;
-  background: lightgray;
+  flex: 3;
+  background: #F4F4F4;
+  display: flex;
+  &-border {
+    padding:30px;
+    background: lightgray;
+    &:before {
+      content: 'w';
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      position: absolute;
+      left: 15px;
+      color: white;
+      background: red;
+    }
+  }
 }
 
 .message-list {
@@ -18,9 +36,20 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  &-header {
+    padding: 20px;
+    border-bottom: 1px solid lightgray;
+    h3 {
+      margin: 0;
+    }
+  }
   &-body {
     overflow: scroll;
     flex: 0 1 100%;
+  }
+  &-form {
+    border-top: 1px solid lightgray;
+    padding: 20px;
   }
 }
 
@@ -42,12 +71,14 @@ body {
 
   input {
     display: block;
-    padding: 10px;
+    padding: 7px;
     width: 100%;
     font-size: 24px;
   }
 
   button {
     padding: 10px 50px;
+    background: #DF7170;
+    color: white;
   }
 }
